@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstVuelingExam", "FirstVu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstVuelingExam.CalendarChecker.Tests", "FirstVuelingExam.Tests\FirstVuelingExam.CalendarChecker.Tests.csproj", "{42292C9A-7FD6-4DC5-9F8E-2C81295E8F9B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exam", "Exam", "{77E52E93-68B8-4D7F-ADF9-3A28792888A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67937E73-A2F6-40CA-8BBF-1B5377A2236E} = {77E52E93-68B8-4D7F-ADF9-3A28792888A9}
+		{42292C9A-7FD6-4DC5-9F8E-2C81295E8F9B} = {77E52E93-68B8-4D7F-ADF9-3A28792888A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D277446-5D1C-4EC0-9E57-C42B14B6CCC1}

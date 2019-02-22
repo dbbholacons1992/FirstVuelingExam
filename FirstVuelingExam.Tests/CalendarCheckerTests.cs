@@ -6,15 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace FirstVuelingExam.Tests
 {
     [TestClass()]
     public class CalendarCheckerTests
     {
-        [TestMethod()]
-        public void getLastThursdayTest()
+
+        [DataRow(1, 2020, 30)]
+        [DataRow(6, 2000, 29)]
+        [DataTestMethod]
+        public void getLastThursdayTest(int month, int year, int dayOfMonthLastThursday)
         {
-            Assert.Fail();
+            DateTime lastThursday = CalendarChecker.getLastThursday(month, year);
+
+            Assert.AreEqual(dayOfMonthLastThursday, lastThursday.Day);
         }
     }
 }
