@@ -28,6 +28,18 @@ namespace FirstVuelingExam
             return lastThursday;
         }
 
+        public static List<DateTime> getAllInvestmentDaysInAPeriodOfTime(DateTime firstDate, DateTime lastDate)
+        {
+            List<DateTime> investmentDays = new List<DateTime>();
+
+            for (DateTime i = firstDate; i < lastDate; i.AddMonths(1))
+            {
+                investmentDays.Add(getLastThursday(i.Month, i.Year).AddDays(1));
+            }
+
+            return investmentDays;
+        }
+
         public static int getNumOfMonthEsp(string month)
         {
             switch (month)
