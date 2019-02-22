@@ -28,5 +28,39 @@ namespace FirstVuelingExam
             return lastThursday;
         }
 
+        public static int getNumOfMonthEsp(string month)
+        {
+            switch (month)
+            {
+                case "ene":
+                    return 1;
+                case "feb":
+                    return 2;
+                case "mar":
+                    return 3;
+                case "abr":
+                    return 4;
+                case "may":
+                    return 5;
+                case "jun":
+                    return 6;
+                case "jul":
+                    return 7;
+                case "ago":
+                    return 8;
+                case "sep":
+                    return 9;
+                case "oct":
+                    return 10;
+                case "nov":
+                    return 11;
+                case "dic":
+                    return 12;
+                default:
+                    return 0;
+
+            }
+        }
+
     }
 }
