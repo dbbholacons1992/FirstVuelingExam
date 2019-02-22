@@ -13,8 +13,9 @@ namespace FirstVuelingExam
     {
         private readonly static string path = ConfigurationManager.AppSettings.Get("csvPath");
 
+        public Dictionary<DateTime, DayInvestmentCost> dayInvestmentCosts;
 
-        public static string getLastLineDate()
+        public string getLastLineDate()
         {
             var lastLine = File.ReadLines(path).Last();
 
@@ -22,7 +23,7 @@ namespace FirstVuelingExam
             
         }
 
-        public static string getFirstLineDate()
+        public string getFirstLineDate()
         {
             var firstLine = from lines in File.ReadLines(path)
                            where lines.Split(';')[0].Split('-').Length > 1
@@ -31,7 +32,7 @@ namespace FirstVuelingExam
             return firstLine.First();
         }
 
-        public static DateTime getDateFromLine(string line)
+        public DateTime getDateFromLine(string line)
         {
 
             var cellsValues = line.Split(';');
@@ -43,6 +44,51 @@ namespace FirstVuelingExam
                         CalendarChecker.getNumOfMonthEsp(dateValues[1]),
                         Int32.Parse(dateValues[0]));
         }
+
+        public void storeAllDayInvestementValues()
+        {
+            dayInvestmentCosts = new Dictionary<DateTime, DayInvestmentCost>();
+
+            var validLines = from lines in File.ReadLines(path)
+                            where lines.Split(';')[0].Split('-').Length > 1
+                            select lines;
+
+            foreach(string l in validLines)
+            {
+                DateTime d = getDateFromLine(l);
+
+                var lineValues = l.Split(';');
+
+                dayInvestmentCosts.Add(d, 
+                    new DayInvestmentCost(d, 
+                                decimal.Parse(lineValues[1].Replace('.', ',')), 
+                                decimal.Parse(lineValues[2].Replace('.', ','))));
+            }
+        }
+
+        public decimal getOpenValueForInvestment(DateTime d)
+        {
+            decimal openValue;
+            try
+            {
+                DayInvestmentCost dInvestCost = dayInvestmentCosts[d];
+
+               
+                openValue = dInvestCost.OpenValue;
+                
+                
+            }
+            catch (KeyNotFoundException e)
+            {
+
+                openValue = getOpenValueForInvestment(d.AddDays(1));
+            }
+
+            return openValue;
+        }
+
+
+
 
     }
 }

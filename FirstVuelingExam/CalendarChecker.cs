@@ -32,9 +32,11 @@ namespace FirstVuelingExam
         {
             List<DateTime> investmentDays = new List<DateTime>();
 
-            for (DateTime i = firstDate; i < lastDate; i.AddMonths(1))
+            for (DateTime i = firstDate; i < lastDate; i = i.AddMonths(1))
             {
-                investmentDays.Add(getLastThursday(i.Month, i.Year).AddDays(1));
+                DateTime investDay = getLastThursday(i.Month, i.Year).AddDays(1);
+
+                if(investDay < lastDate && investDay > firstDate)investmentDays.Add(investDay);
             }
 
             return investmentDays;

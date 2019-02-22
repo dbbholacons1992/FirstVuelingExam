@@ -11,10 +11,30 @@ namespace FirstVuelingExam
     {
         static void Main(string[] args)
         {
-            DataAccess dacces = new DataAccess();
+            DataAccess DAcces = new DataAccess();
+            Calculator calculator = new Calculator(DAcces);
+            
 
-            Console.WriteLine(DataAccess.getDateFromLine(DataAccess.getFirstLineDate()));
-            Console.WriteLine(DataAccess.getDateFromLine(DataAccess.getLastLineDate()));
+            decimal totalStocks;
+
+            List<DateTime> investmentDays =
+                CalendarChecker.getAllInvestmentDaysInAPeriodOfTime(
+                DAcces.getDateFromLine(DAcces.getLastLineDate()),
+                DAcces.getDateFromLine(DAcces.getFirstLineDate()));
+
+            DAcces.storeAllDayInvestementValues();
+
+      
+
+            totalStocks = calculator.calculateTotalStocks(investmentDays, (decimal)50.0, 2);
+
+            Console.WriteLine(new StringBuilder().Append("Total amount: ")
+                .Append(calculator.calculateMoneyWhenSellStocks(totalStocks,
+                DAcces.getDateFromLine(DAcces.getFirstLineDate()))));
+            
+            
+
+            
 
         }
     }
