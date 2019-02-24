@@ -16,15 +16,14 @@ This is a static class that contains methods to calculate stocks and values of i
 ![CalculateTotalStocks](https://github.com/dbbholacons1992/FirstVuelingExam/blob/master/README%20images/CalculateTotalStocks%20Method.JPG)
 
 
-
-
-
 ### CalendarChecker (CommonTier)
+
+This is a static class that works for get the last Thursday of a month and get all the investment days given a range of days.
 
 ### InvestmentDay (CommonTier)
 
-### Repository (DataAccesTier)
+This class have only three variables, a DateTime object and two decimal values that correspond to the openValue and the closeValue for the day of the DateTime object. We use objects of this class to store all the days we read from de cvs file in a Diccionary, using de DateTime as a Key.
 
-### Program (PresentationTier)
+### Repository (DataAccesTier)
 
 Resultado Final: 36585,568
