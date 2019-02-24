@@ -18,7 +18,15 @@ namespace FirstVuelingExam.DataAccess.Repository
 
         private readonly static string path = ConfigurationManager.AppSettings.Get("csvPath");
 
-
+        /// <summary>
+        /// Parses a line to obtain a <c>DateTime</c> object
+        /// </summary>
+        /// <param name="line">A <c>string</c> that defines a date</param>
+        /// <returns>A <c>DateTime</c> object</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FormatException"></exception>
+        /// <exception cref="CultureNotFoundException"></exception>
+        /// <exception cref="NullReferenceException"></exception>
         public DateTime getDateFromLine(string line)
         {
             DateTime date;
@@ -52,6 +60,19 @@ namespace FirstVuelingExam.DataAccess.Repository
             return date;
         }
 
+        /// <summary>
+        /// Get from a file a list of <c>InvestmentDay</c> and store them in a <c>Dictionary</c>
+        /// </summary>
+        /// <returns>A <c>Dictionary</c> with all the stored <c>InvestedDay</c> objects</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="FormatException"></exception>
+        /// <exception cref="CultureNotFoundException"></exception>
+        /// <exception cref="NullReferenceException"></exception>
+        /// <exception cref="OverflowException"></exception>
+        /// <exception cref="DirectoryNotFoundException"></exception>
+        /// <exception cref="FileNotFoundException"></exception>
+        /// <exception cref="IOException"></exception>
+        /// <exception cref="UnauthorizedAccessException"></exception>
         public Dictionary<DateTime, InvestmentDay> getAllInvestmentDays()
         {
             Dictionary<DateTime, InvestmentDay> allDays = new Dictionary<DateTime, InvestmentDay>();
@@ -121,6 +142,18 @@ namespace FirstVuelingExam.DataAccess.Repository
             return allDays;
         }
 
+        /// <summary>
+        /// Get a <c>List</c> of investment days given a <paramref name="dates"/> that defines
+        /// a range
+        /// </summary>
+        /// <param name="dates">
+        /// A <c>Dictionary</c> with <c>DateTime</c> as Keys and <c>InvestmentDay</c> objects as values
+        /// </param>
+        /// <returns>A <c>List</c> of <c>InvestmentDay</c> objects</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="IOException"></exception>
         public List<InvestmentDay> getAllInvestmentDaysInAPeriodOfTime(Dictionary<DateTime, InvestmentDay> dates)
         {
             List<InvestmentDay> investmentDays = new List<InvestmentDay>();

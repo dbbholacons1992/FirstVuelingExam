@@ -13,6 +13,14 @@ namespace FirstVuelingExam.Common.Library.Utils
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
                 .MethodBase.GetCurrentMethod().DeclaringType);
 
+        /// <summary>
+        /// Obtains the <c>DateTime</c> that corresponds to the last Thursday 
+        /// of a particular <paramref name="month"/> in a particular <paramref name="month"/>
+        /// </summary>
+        /// <param name="month">Integer number defines a month</param>
+        /// <param name="year">Integer number defines a year</param>
+        /// <returns>A date that corresponds to the last Thursday of the month</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static DateTime getLastThursday(int month, int year)
         {
             int Thursday = 4;
@@ -42,6 +50,14 @@ namespace FirstVuelingExam.Common.Library.Utils
             return lastThursday;
         }
 
+        /// <summary>
+        /// Obtains a list of <c>DateTime</c> objects from <paramref name="dates"/>,
+        /// if some day there's no openValue information, the invesment is tried the next day
+        /// </summary>
+        /// <param name="dates">A <c>Dictionary</c> with a range of dates</param>
+        /// <returns>A list of <c>DateTime</c> objects</returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         public static List<DateTime> getAllInvestmentDaysInAPeriodOfTime(Dictionary<DateTime, InvestmentDay> dates)
         {
             List<DateTime> investmentDays = new List<DateTime>();
