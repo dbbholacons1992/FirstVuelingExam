@@ -1,5 +1,5 @@
 # FirstVuelingExam
-![FirstVuelingExam Result](FirstVuelingExam/FirstVuelingExam Result.gif)
+![FirstVuelingExam Result](https://github.com/dbbholacons1992/FirstVuelingExam/blob/master/FirstVuelingExam%20Result.gif)
 Listado de clases creadas:
 
 - CalendarChecker
