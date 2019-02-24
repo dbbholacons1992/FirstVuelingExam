@@ -1,5 +1,5 @@
 # FirstVuelingExam
-![FirstVuelingExam Result](FirstVuelingExam Result.gif)
+![FirstVuelingExam Result](FirstVuelingExam/FirstVuelingExam Result.gif)
 Listado de clases creadas:
 
 - CalendarChecker
