@@ -10,25 +10,76 @@ namespace FirstVuelingExam.Common.Library.Utils
     public static class Calculator
     {
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
+                .MethodBase.GetCurrentMethod().DeclaringType);
+
         public static decimal calculateStocks(decimal price, decimal investment)
         {
-            return decimal.Round(investment / price, 3);
+            decimal stocks;
+
+            try
+            {
+                stocks = decimal.Round(investment / price, 3);
+            }
+            catch (DivideByZeroException e)
+            {
+                log.Error(e);
+                throw;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                log.Error(e);
+                throw;
+            }
+
+            return stocks; 
         }
 
         public static decimal calculateRealInvestment(decimal investment, decimal commissionPercentage)
         {
-            return investment - decimal.Round((investment * (commissionPercentage / 100)), 3);
+            decimal realInvestment;
+
+            try
+            {
+                realInvestment = investment - decimal.Round((investment * (commissionPercentage / 100)), 3);
+            }
+            catch (DivideByZeroException e)
+            {
+                log.Error(e);
+                throw;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                log.Error(e);
+                throw;
+            }
+
+            return realInvestment;
         }
 
         public static decimal calculateTotalStocks(List<InvestmentDay> investmentDates, decimal periodicInvestment, decimal commissionPercentage)
         {
             decimal totalStocks = 0;
-            decimal realInvestment = calculateRealInvestment(periodicInvestment, commissionPercentage);
 
-            foreach(InvestmentDay d in investmentDates)
+            try
             {
-                totalStocks = totalStocks + calculateStocks(d.OpenValue, realInvestment);
+                decimal realInvestment = calculateRealInvestment(periodicInvestment, commissionPercentage);
 
+                foreach (InvestmentDay d in investmentDates)
+                {
+                    totalStocks = totalStocks + calculateStocks(d.OpenValue, realInvestment);
+
+                }
+            }
+            catch (DivideByZeroException e)
+            {
+                log.Error(e);
+                throw;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                log.Error(e);
+                throw;
             }
 
             return totalStocks;
@@ -39,7 +90,15 @@ namespace FirstVuelingExam.Common.Library.Utils
             decimal showMeTheMoney;
             decimal closePrice = day.CloseValue;
 
-            showMeTheMoney = decimal.Round(closePrice * stocks, 3);
+            try
+            {
+                showMeTheMoney = decimal.Round(closePrice * stocks, 3);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                log.Error(e);
+                throw;
+            }
 
             return showMeTheMoney;
         }
