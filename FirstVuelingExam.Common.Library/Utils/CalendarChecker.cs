@@ -1,10 +1,11 @@
-﻿using System;
+﻿using FirstVuelingExam.Common.Library.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstVuelingExam
+namespace FirstVuelingExam.Common.Library.Utils
 {
     public static class CalendarChecker
     {
@@ -28,9 +29,13 @@ namespace FirstVuelingExam
             return lastThursday;
         }
 
-        public static List<DateTime> getAllInvestmentDaysInAPeriodOfTime(DateTime firstDate, DateTime lastDate)
+        public static List<DateTime> getAllInvestmentDaysInAPeriodOfTime(Dictionary<DateTime, InvestmentDay> dates)
         {
             List<DateTime> investmentDays = new List<DateTime>();
+            DateTime firstDate = dates.Keys.First();
+            DateTime lastDate = dates.Keys.Last();
+
+            
 
             for (DateTime i = firstDate; i < lastDate; i = i.AddMonths(1))
             {
@@ -42,39 +47,7 @@ namespace FirstVuelingExam
             return investmentDays;
         }
 
-        public static int getNumOfMonthEsp(string month)
-        {
-            switch (month)
-            {
-                case "ene":
-                    return 1;
-                case "feb":
-                    return 2;
-                case "mar":
-                    return 3;
-                case "abr":
-                    return 4;
-                case "may":
-                    return 5;
-                case "jun":
-                    return 6;
-                case "jul":
-                    return 7;
-                case "ago":
-                    return 8;
-                case "sep":
-                    return 9;
-                case "oct":
-                    return 10;
-                case "nov":
-                    return 11;
-                case "dic":
-                    return 12;
-                default:
-                    return 0;
-
-            }
-        }
+     
 
     }
 }

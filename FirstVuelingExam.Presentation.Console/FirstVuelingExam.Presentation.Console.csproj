@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{67937E73-A2F6-40CA-8BBF-1B5377A2236E}</ProjectGuid>
+    <ProjectGuid>{736835E2-096A-4D5B-9A0F-F90E4B72F0AD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FirstVuelingExam</RootNamespace>
-    <AssemblyName>FirstVuelingExam</AssemblyName>
+    <RootNamespace>FirstVuelingExam.Presentation.Console</RootNamespace>
+    <AssemblyName>FirstVuelingExam.Presentation.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,10 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FirstVuelingExam.Common.Library\FirstVuelingExam.Common.Library.csproj">
+      <Project>{6acc48eb-95d8-4ebf-94ee-8daf14615385}</Project>
+      <Name>FirstVuelingExam.Common.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FirstVuelingExam.DataAccess.Repository\FirstVuelingExam.DataAccess.Repository.csproj">
+      <Project>{908de738-cab4-4bb3-b011-98697ce3783f}</Project>
+      <Name>FirstVuelingExam.DataAccess.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

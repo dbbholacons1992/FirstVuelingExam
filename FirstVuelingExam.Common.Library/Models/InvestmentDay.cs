@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstVuelingExam
+namespace FirstVuelingExam.Common.Library.Models
 {
-    public class DayInvestmentCost
+    public class InvestmentDay
     {
         DateTime Date;
         public decimal CloseValue;
         public decimal OpenValue;
         
 
-        public DayInvestmentCost(DateTime date, decimal closeValue, decimal openValue)
+        public InvestmentDay(DateTime date, decimal closeValue, decimal openValue)
         {
-            this.Date = date;
-            this.CloseValue = closeValue;
-            this.OpenValue = openValue;
+            Date = date;
+            CloseValue = closeValue;
+            OpenValue = openValue;
             
         }
 
@@ -30,7 +30,7 @@ namespace FirstVuelingExam
 
         public override bool Equals(object obj)
         {
-            var cost = obj as DayInvestmentCost;
+            var cost = obj as InvestmentDay;
             return cost != null &&
                    Date == cost.Date &&
                    CloseValue == cost.CloseValue &&

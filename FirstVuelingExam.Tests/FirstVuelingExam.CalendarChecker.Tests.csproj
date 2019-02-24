@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FirstVuelingExam\FirstVuelingExam.csproj">
-      <Project>{67937E73-A2F6-40CA-8BBF-1B5377A2236E}</Project>
-      <Name>FirstVuelingExam</Name>
+    <ProjectReference Include="..\FirstVuelingExam.Common.Library\FirstVuelingExam.Common.Library.csproj">
+      <Project>{6ACC48EB-95D8-4EBF-94EE-8DAF14615385}</Project>
+      <Name>FirstVuelingExam.Common.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
