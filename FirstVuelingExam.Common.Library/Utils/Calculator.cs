@@ -85,7 +85,8 @@ namespace FirstVuelingExam.Common.Library.Utils
         /// <returns>The total amount of stocks result of regular investments</returns>
         /// <exception cref="DivideByZeroException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static decimal calculateTotalStocks(List<InvestmentDay> investmentDates, decimal periodicInvestment, decimal commissionPercentage)
+        public static decimal calculateTotalStocks(List<InvestmentDay> investmentDates, 
+            decimal periodicInvestment, decimal commissionPercentage)
         {
             decimal totalStocks = 0;
 
