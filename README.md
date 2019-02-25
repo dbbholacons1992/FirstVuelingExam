@@ -1,4 +1,7 @@
 # FirstVuelingExam
+
+This code reads a cvs file with the Zara stock prices between 23/05/2001
+
 ![FirstVuelingExam Result](https://github.com/dbbholacons1992/FirstVuelingExam/blob/master/FirstVuelingExam%20Result.gif)
 
 To solve the problem I divided the project in 5 classes:
