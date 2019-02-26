@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VuelingFramework.VuelingLogs;
 
 namespace FirstVuelingExam.Common.Library.Utils
 {
     public static class Calculator
     {
+        private static readonly IVuelingLogger log = new SerilogLogger();
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
-                .MethodBase.GetCurrentMethod().DeclaringType);
 
 
         /// <summary>
@@ -33,12 +33,12 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (DivideByZeroException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -63,12 +63,12 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (DivideByZeroException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -102,12 +102,12 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (DivideByZeroException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -132,7 +132,7 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 

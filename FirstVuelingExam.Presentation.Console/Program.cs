@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 
 namespace FirstVuelingExam.Presentation.Console
@@ -12,11 +13,11 @@ namespace FirstVuelingExam.Presentation.Console
     using System;
     using System.Globalization;
     using System.IO;
+    using VuelingFramework.VuelingLogs;
 
     public class Program
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
-                .MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly IVuelingLogger log = new SerilogLogger();
 
         static void Main(string[] args)
         {
@@ -35,65 +36,67 @@ namespace FirstVuelingExam.Presentation.Console
                 Console.WriteLine(new StringBuilder().Append("Total amount: ")
                    .Append(Calculator.calculateMoneyWhenSellStocks(totalStocks, allDays[allDays.Keys.First()])));
 
+
+                log.Info("test test test testingg");
             }
             catch (ArgumentNullException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (FormatException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (CultureNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (NullReferenceException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (OverflowException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (DirectoryNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (FileNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (IOException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (UnauthorizedAccessException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (InvalidOperationException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 Console.WriteLine(e.Message);
             }
             catch (DivideByZeroException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 

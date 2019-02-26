@@ -8,15 +8,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VuelingFramework.VuelingLogs;
 
 namespace FirstVuelingExam.DataAccess.Repository
 {
     public class Repository
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
-                .MethodBase.GetCurrentMethod().DeclaringType);
+        
 
         private readonly static string path = ConfigurationManager.AppSettings.Get("csvPath");
+
+        private static readonly IVuelingLogger log = new SerilogLogger();
 
         /// <summary>
         /// Parses a line to obtain a <c>DateTime</c> object
@@ -38,22 +40,22 @@ namespace FirstVuelingExam.DataAccess.Repository
             }
             catch (ArgumentNullException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (FormatException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (CultureNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (NullReferenceException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -95,47 +97,47 @@ namespace FirstVuelingExam.DataAccess.Repository
             }
             catch (ArgumentNullException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (FormatException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (CultureNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (NullReferenceException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (OverflowException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (DirectoryNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (FileNotFoundException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (IOException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (UnauthorizedAccessException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -178,22 +180,22 @@ namespace FirstVuelingExam.DataAccess.Repository
             }
             catch (ArgumentNullException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (InvalidOperationException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (IOException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 

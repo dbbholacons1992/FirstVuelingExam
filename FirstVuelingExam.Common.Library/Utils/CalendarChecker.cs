@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VuelingFramework.VuelingLogs;
 
 namespace FirstVuelingExam.Common.Library.Utils
 {
     public static class CalendarChecker
     {
+        private static readonly IVuelingLogger log = new SerilogLogger();
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection
-                .MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// Obtains the <c>DateTime</c> that corresponds to the last Thursday 
@@ -43,7 +43,7 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 
@@ -75,12 +75,12 @@ namespace FirstVuelingExam.Common.Library.Utils
             }
             catch (ArgumentOutOfRangeException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
             catch (InvalidOperationException e)
             {
-                log.Error(e);
+                log.Error(e.Message);
                 throw;
             }
 

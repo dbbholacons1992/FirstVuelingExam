@@ -15,22 +15,10 @@ namespace FirstVuelingExam.Common.Library.Utils.Tests
         [DataRow("9,36", 49, "5,235")]
         [DataRow("5,33", 49, "9,193")]
         [DataTestMethod]
-        public void calculateStocksTest(string p0, decimal p1, string result)
+        public void calculateStocksTest(string p0, int p1, string result)
         {
             Assert.IsTrue(Calculator.calculateStocks(decimal.Parse(p0), p1) == decimal.Parse(result));
         }
 
-        
-        [TestMethod()]
-        public void calculateTotalStocksTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
-        public void calculateMoneyWhenSellStocksTest()
-        {
-            Assert.Fail();
-        }
     }
 }
