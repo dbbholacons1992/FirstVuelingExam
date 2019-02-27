@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VuelingFramework.VuelingLogs;
 
+
 namespace FirstVuelingExam.DataAccess.Repository
 {
     public class Repository
@@ -17,8 +18,8 @@ namespace FirstVuelingExam.DataAccess.Repository
         
 
         private readonly static string path = ConfigurationManager.AppSettings.Get("csvPath");
-
-        private static readonly IVuelingLogger log = new SerilogLogger();
+        private static readonly IVuelingLogger log = new Log4NetLogger();
+        
 
         /// <summary>
         /// Parses a line to obtain a <c>DateTime</c> object

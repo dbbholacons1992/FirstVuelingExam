@@ -17,7 +17,9 @@ namespace FirstVuelingExam.Presentation.Console
 
     public class Program
     {
-        private static readonly IVuelingLogger log = new SerilogLogger();
+        //private static readonly IVuelingLogger logger = new Log4NetLogger();
+
+        static readonly IVuelingLogger log = new SerilogLogger();
 
         static void Main(string[] args)
         {
@@ -34,10 +36,8 @@ namespace FirstVuelingExam.Presentation.Console
                 decimal totalStocks = Calculator.calculateTotalStocks(investmentDays, (decimal)50.0, 2);
 
                 Console.WriteLine(new StringBuilder().Append("Total amount: ")
-                   .Append(Calculator.calculateMoneyWhenSellStocks(totalStocks, allDays[allDays.Keys.First()])));
+                .Append(Calculator.calculateMoneyWhenSellStocks(totalStocks, allDays[allDays.Keys.First()])));
 
-
-                log.Info("test test test testingg");
             }
             catch (ArgumentNullException e)
             {
@@ -97,7 +97,7 @@ namespace FirstVuelingExam.Presentation.Console
             catch (DivideByZeroException e)
             {
                 log.Error(e.Message);
-                throw;
+                Console.WriteLine(e.Message);
             }
 
         }

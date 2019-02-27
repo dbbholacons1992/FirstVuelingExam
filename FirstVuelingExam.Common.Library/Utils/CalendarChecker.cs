@@ -10,7 +10,7 @@ namespace FirstVuelingExam.Common.Library.Utils
 {
     public static class CalendarChecker
     {
-        private static readonly IVuelingLogger log = new SerilogLogger();
+        private static readonly IVuelingLogger log = new Log4NetLogger();
 
 
         /// <summary>
